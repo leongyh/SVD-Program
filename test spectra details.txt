@@ -1,0 +1,8 @@
+The attached excel file is a matrix of spectra for testing the SVD program. 
+It has the spectra or a monomer-dimer (M, D) mixture as a function of the 
+nominal concentration (c in moles/L calcd using the MW of the monomer).  
+The values shown are the experimental absorbances for a 1 cm path length. 
+The object of the program is to determine the spectra of the monomer and the 
+dimer. By fitting these spectra to the experiment ones we can deduce the 
+concentrations of the M and D and thus the equilibrium constant  for dimerization:  
+D = 2M, K(1,2) = D/M^2. The other attachment is a figure showing the expl spectra.

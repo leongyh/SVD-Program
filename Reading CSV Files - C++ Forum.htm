@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://www.cplusplus.com/forum/general/13087/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Reading CSV Files - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://www.cplusplus.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="./Reading CSV Files - C++ Forum_files/main.css">
+<script type="text/javascript" async="" src="./Reading CSV Files - C++ Forum_files/ga.js"></script><script src="./Reading CSV Files - C++ Forum_files/main.js" type="text/javascript"></script><style type="text/css"></style>
+<script type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./Reading CSV Files - C++ Forum_files/ndhui.css"></head>
+<body><script type="text/javascript" language="javascript" src="./Reading CSV Files - C++ Forum_files/ndhui.js"></script>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="http://www.cplusplus.com/" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="http://www.cplusplus.com/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="http://www.cplusplus.com/forum/">Forum</a></li>
+<li><a href="http://www.cplusplus.com/forum/general/">General C++ Programming</a></li>
+<li class="here">Reading CSV Files</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span><div id="I_corner" style="display: block;"><div id="I_cornerinner"><div id="I_userid">Not logged in</div></div></div><div id="I_userbuttons"><a href="http://www.cplusplus.com/user/access.cgi?w=signup">register</a><a id="I_btnlogin" href="javascript:LBI_user.modal(1)">log in</a></div><div id="I_fold" style="display: none;"><div class="deco"></div><form name="I_loginform" id="I_loginform" action="http://www.cplusplus.com/user/access.cgi" onsubmit="LBI_user.login(); return false;" method="post" style="display: none;"><div class="fields"><input type="hidden" name="w" value="login"><input type="hidden" name="y" value="1"><input type="hidden" name="to" value="http://www.cplusplus.com/forum/general/13087/">user name: <input class="txt" name="l" size="8" type="text" title="Type user name"><br>password: <input class="txt" name="p" size="8" type="password" title="Type password"><br><input class="chk" name="rememberme" id="rememberme" value="1" type="checkbox"><label for="rememberme">remember me</label>&nbsp;<input class="btn" value="sign in" type="submit"><br><div class="forgot"><a href="http://www.cplusplus.com/user/access.cgi?w=lostpass">forgot your password?</a></div></div><div class="openid">or sign in using:<br><a class="google" href="http://www.cplusplus.com/user/access.cgi?w=login&y=1&pr=google&to=%2Fforum%2Fgeneral%2F13087%2F" title="Sign in using your google account"><span></span></a><a class="yahoo" href="http://www.cplusplus.com/user/access.cgi?w=login&y=1&pr=yahoo&to=%2Fforum%2Fgeneral%2F13087%2F" title="Sign in using your Yahoo! account"><span></span></a> </div></form><div id="I_loginwait" style="display: none;"></div><div id="I_loginfail" style="display: none;"><div id="I_loginfailtext"></div><a class="C_bRepeat" href="javascript:LBI_user.modal(1)">try again</a><a class="C_bCancel" href="javascript:LBI_user.modal(0)">cancel</a><div class="forgot"><a href="http://www.cplusplus.com/user/access.cgi?w=lostpass">forgot your password?</a></div></div><div class="close"><a href="javascript:LBI_user.modal(0)" title="cancel log in"><span></span></a></div></div></div></div></div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight" style="height: 795px;"></div>
+<div id="I_main">
+<div class="C_ad728">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div><div id="I_content"><h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> Reading CSV Files</h3><span id="CH_edttl"></span><span class="rootdatPost" title="13087,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg62989"><span title="62989,23882,1023,13,0"></span><table class="box">
+<tbody><tr class="rtop">
+<td class="dwho"><a href="http://www.cplusplus.com/user/nathanpc/"><b>nathanpc</b> (13)</a></td>
+<td class="dwhen"><a href="http://www.cplusplus.com/forum/general/13087/#msg62989" title="Link to this post"><img src="./Reading CSV Files - C++ Forum_files/link.png" width="16" height="8"></a> <span id="CH_zTm20ebb996ca" title="Wed, 29 Jul 2009 22:52:10 +0000">Jul 29, 2009 at 3:52pm</span><script type="text/javascript">WhenId('CH_zTm20ebb996ca');</script><noscript>Jul 29, 2009 at 10:52pm UTC</noscript></td>
+</tr>
+<tr><td class="dwhat" colspan="2" id="CH_i62989">
+Hello,<br>
+ I'm learning <i>C++</i> with the book <i>C++, How To Program 5/e</i> from <i>Deitel</i> and i like very much to develop file i/o programs, then i want to know how i can develop a program that reads and lists all the things in a <i>CSV</i> file, remember that i want a program that removes the " " from the file, remember too that the collums are: Name | Last Name | Password, if you want here is a example of <i>CSV</i> file that i want to read:<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><kbd>"Nathan"</kbd>,<kbd>"Teste"</kbd>,<kbd>"8326"</kbd>,
+<kbd>"John"</kbd>,<kbd>"Gates"</kbd>,<kbd>"1832"</kbd>,</code></pre></td></tr></tbody></table></div>
+<br>
+<br>
+Thanks,<br>
+ Nathan Paulino Campos
+</td></tr>
+<tr>
+<td colspan="2" class="dhow">
+<div class="dedit">
+<span class="sedited">Last edited on <span id="CH_zTm185c5287b4" title="Wed, 29 Jul 2009 22:55:19 +0000">Jul 29, 2009 at 3:55pm</span><script type="text/javascript">WhenId('CH_zTm185c5287b4');</script><noscript>Jul 29, 2009 at 10:55pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn62989"></span>
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="C_forPost" id="msg63041"><span title="63041,13114,1023,6281,0"></span><table class="box">
+<tbody><tr class="rtop">
+<td class="dwho"><a href="http://www.cplusplus.com/user/Bazzy/"><b>Bazzy</b> (6281)</a></td>
+<td class="dwhen"><a href="http://www.cplusplus.com/forum/general/13087/#msg63041" title="Link to this post"><img src="./Reading CSV Files - C++ Forum_files/link.png" width="16" height="8"></a> <span id="CH_zTm559978f914" title="Thu, 30 Jul 2009 06:02:39 +0000">Jul 29, 2009 at 11:02pm</span><script type="text/javascript">WhenId('CH_zTm559978f914');</script><noscript>Jul 30, 2009 at 6:02am UTC</noscript></td>
+</tr>
+<tr><td class="dwhat" colspan="2" id="CH_i63041">
+use <span class="auto"><code class="source">getline( yourfilestream, astring, <kbd>','</kbd> );</code></span> to get the values. Then you can easily remove the quotes from <i>astring</i> <br>
+
+</td></tr>
+<tr>
+<td colspan="2" class="dhow">
+<div class="dedit">
+<span class="dbtn" id="CH_btn63041"></span>
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="C_forPost" id="msg63070"><span title="63070,23882,1023,13,0"></span><table class="box">
+<tbody><tr class="rtop">
+<td class="dwho"><a href="http://www.cplusplus.com/user/nathanpc/"><b>nathanpc</b> (13)</a></td>
+<td class="dwhen"><a href="http://www.cplusplus.com/forum/general/13087/#msg63070" title="Link to this post"><img src="./Reading CSV Files - C++ Forum_files/link.png" width="16" height="8"></a> <span id="CH_zTm086e190ac4" title="Thu, 30 Jul 2009 11:25:22 +0000">Jul 30, 2009 at 4:25am</span><script type="text/javascript">WhenId('CH_zTm086e190ac4');</script><noscript>Jul 30, 2009 at 11:25am UTC</noscript></td>
+</tr>
+<tr><td class="dwhat" colspan="2" id="CH_i63070">
+Hello Bazzy,<br>
+ Thanks for yor useful answer, but how i can do this, you can post a big part of the code? Because i'm learning C++ and i didn't understand so much that you type.<br>
+<br>
+Thanks,<br>
+ Nathan Paulino Campos
+</td></tr>
+<tr>
+<td colspan="2" class="dhow">
+<div class="dedit">
+<span class="dbtn" id="CH_btn63070"></span>
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="C_forPost" id="msg63073"><span title="63073,13114,1023,6281,0"></span><table class="box">
+<tbody><tr class="rtop">
+<td class="dwho"><a href="http://www.cplusplus.com/user/Bazzy/"><b>Bazzy</b> (6281)</a></td>
+<td class="dwhen"><a href="http://www.cplusplus.com/forum/general/13087/#msg63073" title="Link to this post"><img src="./Reading CSV Files - C++ Forum_files/link.png" width="16" height="8"></a> <span id="CH_zTm47de8701e6" title="Thu, 30 Jul 2009 11:52:52 +0000">Jul 30, 2009 at 4:52am</span><script type="text/javascript">WhenId('CH_zTm47de8701e6');</script><noscript>Jul 30, 2009 at 11:52am UTC</noscript></td>
+</tr>
+<tr><td class="dwhat" colspan="2" id="CH_i63073">
+Here is an example assuming all the values have double quotes and they don't contain commas<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code>ifstream file ( <kbd>"file.csv"</kbd> ); <cite>// declare file stream: <a href="http://www.cplusplus.com/reference/iostream/ifstream/">http://www.cplusplus.com/reference/iostream/ifstream/</a></cite>
+string value;
+<var>while</var> ( file.good() )
+{
+     getline ( file, value, <kbd>','</kbd> ); <cite>// read a string until next comma: <a href="http://www.cplusplus.com/reference/string/getline/">http://www.cplusplus.com/reference/string/getline/</a></cite>
+     cout &lt;&lt; string( value, 1, value.length()-2 ); <cite>// display <i>value</i> removing the first and the last character from it</cite>
+}</code></pre></td></tr></tbody></table></div>
+<br>
+Tutorial on file I/O: <a href="http://www.cplusplus.com/doc/tutorial/files/">http://www.cplusplus.com/doc/tutorial/files/</a><br>
+To display values in even columns you may use some manipulators ( <a href="http://www.cplusplus.com/reference/iostream/manipulators/setw/">http://www.cplusplus.com/reference/iostream/manipulators/setw/</a> )<br>
+If each three values you have a newline in your file, you should remove it ( <a href="http://www.cplusplus.com/reference/iostream/istream/get/">http://www.cplusplus.com/reference/iostream/istream/get/</a> )
+</td></tr>
+<tr>
+<td colspan="2" class="dhow">
+<div class="dedit">
+<span class="dbtn" id="CH_btn63073"></span>
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="C_forPost" id="msg63077"><span title="63077,9110,5119,6755,0"></span><table class="box">
+<tbody><tr class="rtop">
+<td class="dwho"><a href="http://www.cplusplus.com/user/Duoas/"><b>Duoas</b> (6755)</a></td>
+<td class="dwhen"><a href="http://www.cplusplus.com/forum/general/13087/#msg63077" title="Link to this post"><img src="./Reading CSV Files - C++ Forum_files/link.png" width="16" height="8"></a> <span id="CH_zTm356d05ea50" title="Thu, 30 Jul 2009 12:07:00 +0000">Jul 30, 2009 at 5:07am</span><script type="text/javascript">WhenId('CH_zTm356d05ea50');</script><noscript>Jul 30, 2009 at 12:07pm UTC</noscript></td>
+</tr>
+<tr><td class="dwhat" colspan="2" id="CH_i63077">
+Unfortunately, reading a CSV record from file is easily one of the trickier things to do -- <i>iff</i> you intend to be able to read <i>any</i> field datum.<br>
+<br>
+If you are just working with simple CSV file, where the field separator is never part of the field itself, then you can start with something like the code I wrote here:<br>
+<a href="http://www.daniweb.com/forums/thread204808-2.html">http://www.daniweb.com/forums/thread204808-2.html</a><br>
+<br>
+If you want something fancier, you'll need to be much more careful. I was working on something that does it nicely -- it just needs a few more tweaks before I'm ready to release it.<br>
+<br>
+<br>
+Some further notes:<br>
+<br>
+The quotes surrounding your CSV fields are strictly unnecessary. CSV fields are <i>always</i> <b><i>strings</i></b> -- the use of quotes (the 'field delimiter') is only <i>necessary</i> when you wish to embed other special characters within the field. (But there is nothing wrong with quoting every field as you have it...)<br>
+<br>
+Here's some information from the documentation for my CSV library<br>
+<br>
+<tt>   </tt><b>OVERVIEW</b>
+<table class="quote"><tbody><tr><td class="qd">DSV files are deceptively simple. They are organized by four rubrics.<br>
+<br>
+<tt>    * </tt>A file is a listing of <b>records</b> which are separated by <u><b>record separator</b></u> character(s). Typically a record separator is the newline character(s) typical for your platform. Blank lines are ignored.<br>
+<br>
+<tt>    * </tt>Each record is composed of <b>fields</b> which are separated by the <u><b>field separator</b></u> character. Typically this is a comma or a horizontal tab character. Blank fields are not ignored.<br>
+<br>
+<tt>    * </tt>Each field may be surrouned by <u><b>field padding</b></u> characters. Typically this is any sequence of whitespace characters not found in the record separator or field separator. Internal field padding is preserved. Blank lines may contain field padding.<br>
+<br>
+<tt>    * </tt>The contents of the field may be <b><i>quoted</i></b> using a <u><b>field delimiter</b></u> character. Typically this is the double-quote (").<br>
+<br>
+<tt>      </tt>What this means is a field may contain any sequence of characters, including record separators, field separators, field padding, and field delimiter characters —even binary data!<br>
+<br>
+<tt>      </tt>To use the field delimiter in the field, it must be doubled: For example:<br>
+<tt><br>
+          "He said ""Hello"""<br>
+</tt>
+<tt>      </tt>Decoded, this field contains the sequence:<br>
+<tt><br>
+          He said "Hello"<br>
+</tt><br>
+<br>
+And that's it!<br>
+</td></tr></tbody></table>
+<tt>   </tt><b>ADDENDUM</b>
+<table class="quote"><tbody><tr><td class="qd">Well, there is one further consideration. C and C++ programmers are accustomed to using certain character sequences in textual data to represent unprintable or otherwise unusable characters. This has often resulted in DSV files that use those same character sequences.<br>
+<br>
+So, we'll have to add a fifth rubric:<br>
+<br>
+<tt>    * </tt>It is possible that a field contain <u><b>escape sequences</b></u>. Escapes are not constrained by field delimiters.<br>
+<br>
+      The escape sequences are described in more detail below, but here are two ways a C or C++ programmer would expect to encode the previous example:<br>
+<tt><br>
+          "He said \"Hello\""     </tt>(using the field delimiter)<br>
+<tt>          He said \"Hello\"       </tt>(without using the field delimiter)<br>
+</td></tr></tbody></table><br>
+Hope this helps.<br>
+<br>
+Argh. Enough for now.
+</td></tr>
+<tr>
+<td colspan="2" class="dhow">
+<div class="dedit">
+<span class="dbtn" id="CH_btn63077"></span>
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="C_forPost" id="msg63083"><span title="63083,23882,1023,13,0"></span><table class="box">
+<tbody><tr class="rtop">
+<td class="dwho"><a href="http://www.cplusplus.com/user/nathanpc/"><b>nathanpc</b> (13)</a></td>
+<td class="dwhen"><a href="http://www.cplusplus.com/forum/general/13087/#msg63083" title="Link to this post"><img src="./Reading CSV Files - C++ Forum_files/link.png" width="16" height="8"></a> <span id="CH_zTm973a1f30c8" title="Thu, 30 Jul 2009 12:29:27 +0000">Jul 30, 2009 at 5:29am</span><script type="text/javascript">WhenId('CH_zTm973a1f30c8');</script><noscript>Jul 30, 2009 at 12:29pm UTC</noscript></td>
+</tr>
+<tr><td class="dwhat" colspan="2" id="CH_i63083">
+Hello,<br>
+ Thanks to all, Bazzy because of the code and the links to i learn more and learn about that line of code and Duoas for giving me a  very nice link and explanation.<br>
+<br>
+Thanks,<br>
+ Nathan Paulino Campos
+</td></tr>
+<tr>
+<td colspan="2" class="dhow">
+<div class="dedit">
+<span class="dbtn" id="CH_btn63083"></span>
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(13087,1,23882,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','/forum/thread.cgi','/forum/post.cgi','/forum/myposts.cgi',64,32,512,256,1024,16);</script></div><div class="C_ad728">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div><div id="I_nav">
+<div class="sect root">
+<h3><b><a href="http://www.cplusplus.com/">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="http://www.cplusplus.com/info/">Information</a></li>
+<li class="folder doc"><a href="http://www.cplusplus.com/doc/">Documentation</a></li>
+<li class="folder reference"><a href="http://www.cplusplus.com/reference/">Reference</a></li>
+<li class="folder articles"><a href="http://www.cplusplus.com/articles/">Articles</a></li>
+<li class="folder selected forum"><a href="http://www.cplusplus.com/forum/">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="http://www.cplusplus.com/forum/">Forum</a></b></h3>
+<ul>
+<li><a href="http://www.cplusplus.com/forum/beginner/"><b>Beginners</b></a></li><li><a href="http://www.cplusplus.com/forum/windows/"><b>Windows Programming</b></a></li><li><a href="http://www.cplusplus.com/forum/unices/"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="http://www.cplusplus.com/forum/general/"><b>General C++ Programming</b></a></li><li><a href="http://www.cplusplus.com/forum/lounge/"><b>Lounge</b></a></li><li><a href="http://www.cplusplus.com/forum/jobs/"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div></div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="http://www.cplusplus.com/">Home page</a> | <a href="http://www.cplusplus.com/privacy.do">Privacy policy</a><br>© cplusplus.com, 2000-2013 - All rights reserved - <i>v3.1</i><br><a href="http://www.cplusplus.com/contact.do?referrer=http%3A%2F%2Fwww.cplusplus.com%2Fforum%2Fgeneral%2F13087%2F">Spotted an error? contact us</a>
+</div>
+</div>
+
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="/user/">'+us.user+'</a></b></h3><ul><li><a href="/forum/myposts.cgi">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+
+<div id="tf_hui_container" dir="ltr" onselectstart="return false;" style="position: fixed;"><div id="nd_e506252a6b7649eb9640b54befbe7519_status" class="nd_e506252a6b7649eb9640b54befbe7519_status" style="background-position: 0px 0px;"><label id="labelstatus">This page <br> is safe</label></div><div id="nd_e506252a6b7649eb9640b54befbe7519_title" class="nd_e506252a6b7649eb9640b54befbe7519_title"><span class="notranslate"><label id="labeltitle">Bitdefender Total Security 2012</label></span></div><div class="nd_e506252a6b7649eb9640b54befbe7519_separator"></div><a id="nd_e506252a6b7649eb9640b54befbe7519_tooltip_sandbox" class="nd_e506252a6b7649eb9640b54befbe7519_tool" title="Sandbox" style="width:auto"><div id="nd_e506252a6b7649eb9640b54befbe7519_tooltip_sandbox_img"></div></a><div class="nd_e506252a6b7649eb9640b54befbe7519_separator"></div><a id="nd_e506252a6b7649eb9640b54befbe7519_tooltip_settings" class="nd_e506252a6b7649eb9640b54befbe7519_tool" title="Settings" style="width:auto"><div id="nd_e506252a6b7649eb9640b54befbe7519_tooltip_settings_img"></div></a><div class="nd_e506252a6b7649eb9640b54befbe7519_separator"></div><a id="nd_e506252a6b7649eb9640b54befbe7519_onoff" class="nd_e506252a6b7649eb9640b54befbe7519_onoff nd_e506252a6b7649eb9640b54befbe7519_onoff_on" title="ON/OFF"></a><a id="nd_e506252a6b7649eb9640b54befbe7519_dragger" class="nd_e506252a6b7649eb9640b54befbe7519_dragger" title="Click to expand"></a><div class="nd_e506252a6b7649eb9640b54befbe7519_settings_page"><div class="nd_e506252a6b7649eb9640b54befbe7519_settings_page_top"></div><div class="nd_e506252a6b7649eb9640b54befbe7519_settings_page_content"><p class="nd_e506252a6b7649eb9640b54befbe7519_settings_feature"><label class="labelstatustxt"><strong>Antiphishing Filter</strong><br>Blocks pages that contain phishing.</label><a id="nd_e506252a6b7649eb9640b54befbe7519_1" class="nd_e506252a6b7649eb9640b54befbe7519_settings_btn_status nd_e506252a6b7649eb9640b54befbe7519_settings_btn_status_on"></a><div class="nd_e506252a6b7649eb9640b54befbe7519_settings_feature_spacer"></div></p><p class="nd_e506252a6b7649eb9640b54befbe7519_settings_feature"><label class="labelstatustxt"><strong>Antimalware Filter</strong><br>Blocks pages that contain malware.</label><a id="nd_e506252a6b7649eb9640b54befbe7519_2" class="nd_e506252a6b7649eb9640b54befbe7519_settings_btn_status nd_e506252a6b7649eb9640b54befbe7519_settings_btn_status_on"></a><div class="nd_e506252a6b7649eb9640b54befbe7519_settings_feature_spacer"></div></p><p class="nd_e506252a6b7649eb9640b54befbe7519_settings_feature"><label class="labelstatustxt"><strong>Search advisor</strong><br>Provides advanced warning of risky websites in your search results.</label><a id="nd_e506252a6b7649eb9640b54befbe7519_3" class="nd_e506252a6b7649eb9640b54befbe7519_settings_btn_status nd_e506252a6b7649eb9640b54befbe7519_settings_btn_status_off"></a></p></div><div class="nd_e506252a6b7649eb9640b54befbe7519_settings_page_bottom"><a class="nd_e506252a6b7649eb9640b54befbe7519_settings_page_upbtn"></a></div></div></div></body></html>
