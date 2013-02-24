@@ -1,0 +1,162 @@
+// string standard header
+#ifndef _STRING_H
+#define _STRING_H
+
+#include <string.h>
+#include <iostream.h>
+#include <iomanip.h>
+#include <vector.h>
+#include <bool.h>
+#include <algo.h>
+
+#define NPOS (size_t)(-1)
+#define EOL '\0'
+
+class string {
+private:
+	vector<char> _string;
+	
+public:
+	string() {_string.push_back(EOL); return;}
+	string(const string& s) : _string(s._string) {return;}
+	string(const char *s) {
+		const char *p = s;
+		for(size_t i = 0; i<=strlen(s); i++) _string.push_back(*p++);
+		return;
+	}
+	string(char c, size_t num = 1) {
+		for(size_t i=0; i<num; i++) _string.push_back(c); 
+		_string.push_back(EOL);
+		return;
+	}
+	~string() {return;}
+	
+	string& operator=(const string& s) {_string = s._string; return *this;}
+	string& operator=(const char *s) {
+		const char *p = s;
+		_string.erase(_string.begin(), _string.end());
+		for(size_t i = 0; i <= strlen(s); i++) _string.push_back(*p++);
+		return *this;
+	}
+	string& operator=(char c) {
+		_string.erase(_string.begin(), _string.end());
+		_string.push_back(c);
+		_string.push_back(EOL);
+		return *this;
+	}
+	string& operator+=(const string& s) {
+		_string.pop_back();
+		for(size_t i = 0; i<=s.length(); i++) _string.push_back(s[i]);
+		return *this;
+	}
+	string& operator+=(const char *s) {
+		_string.pop_back();
+		for(size_t i=0; i<=strlen(s); i++) _string.push_back(s[i]);
+		return *this;
+	}
+	string& operator+=(char c) {_string.pop_back(); _string.push_back(c); _string.push_back(EOL); return *this;}
+	
+	
+	
+	char operator[](size_t n) const {return _string[n];}
+	char& operator[](size_t n) {return _string[n];}
+	const char *c_str() const {return &_string[0];}
+	char *c_str() {return &_string[0];}
+	
+	//Added by J. Krom 6/22/02
+	const char *c_str(size_t i) const {return &_string[i];}
+	char *c_str(size_t i) {return &_string[i];}
+	
+	size_t length() const {return _string.size()-1;}
+	int compare(const string& s) const {return strcmp(&_string[0], &s._string[0]);}
+	int compare(const char* s) const {return strcmp(&_string[0], s);}
+	int compare(char c) const {if(_string[0] < c) return -1; if(_string[0] == c) return 0; return 1;}
+	
+	ostream& print(ostream& os) const {
+		int w = os.width();
+		unsigned long adj = os.flags();
+		char pad = os.fill();
+		
+		if(w == 0) {
+			for(int i=0; i<_string.size()-1; i++) os << _string[i];
+		} else if(adj & ios::left) {
+			int last = (w < _string.size()-1) ? w : _string.size()-1;
+			int i=0;
+			for(; i<last; i++) os << _string[i];
+			for(; i < w; i++) os << pad;
+		} else {
+			int p = 0;
+			int i=0;
+			for(; i < (w - long(_string.size())+1); i++) os << pad;
+			for(; i<w; i++) os << _string[p++];
+		}
+		
+		
+		return os;
+	}
+	
+	// Added by J. Krom 6/22/02
+	istream& getline(istream& is) {
+		_string = vector<char>();
+		char c;
+		is.sync();
+		while(is.get(c) && (c != '\n')) _string.push_back(c);
+		_string.push_back(EOL);
+		return is;
+	}
+};
+inline string operator+(const string& L, const string& R) {return (string(L) += R);}
+inline string operator+(const char *L, const string& R) {return (string(L) += R);}
+inline string operator+(char L, const string& R) {return (string(L) += R);}
+inline string operator+(const string& L, const char *R) {return (string(L) += R);}
+inline string operator+(const string& L, char R) {return (string(L) += R);}
+
+inline bool operator==(const string& L, const string& R) {return (L.compare(R) == 0);}
+inline bool operator==(const char * L, const string& R) {return (R.compare(L) == 0);}
+inline bool operator==(char L, const string& R) {return (R.compare(L) == 0);}
+inline bool operator==(const string& L, const char *R) {return (L.compare(R) == 0);}
+inline bool operator==(const string& L, char R) {return (L.compare(R) == 0);}
+
+inline bool operator!=(const string& L, const string& R) {return (!(L == R));}
+inline bool operator!=(const char *L, const string& R) {return (!(L == R)); }
+inline bool operator!=(char L, const string& R) {return (!(L == R)); }
+inline bool operator!=(const string& L, const char *R) {return (!(L == R)); }
+inline bool operator!=(const string& L, char R) {return (!(L == R)); }
+
+inline bool operator<(const string& L, const string& R) {return (L.compare(R) < 0);}
+inline bool operator<(const char * L, const string& R) {return (R.compare(L) > 0); }
+inline bool operator<(char L, const string& R) {return (R.compare(L) > 0); }
+inline bool operator<(const string& L, const char *R) {return (L.compare(R) < 0); }
+inline bool operator<(const string& L, char R) {return (L.compare(R) < 0); }
+
+inline bool operator>(const string& L, const string& R) {return (L.compare(R) > 0);}
+inline bool operator>(const char * L, const string& R) {return (R.compare(L) < 0); }
+inline bool operator>(char L, const string& R) {return (R.compare(L) < 0); }
+inline bool operator>(const string& L, const char *R) {return (L.compare(R) > 0); }
+inline bool operator>(const string& L, char R) {return (L.compare(R) > 0); }
+
+
+inline bool operator<=(const string& L, const string& R) {return (L.compare(R) <= 0);}
+inline bool operator<=(const char * L, const string& R) {return (R.compare(L) >= 0); }
+inline bool operator<=(char L, const string& R) {return (R.compare(L) >= 0); }
+inline bool operator<=(const string& L, const char *R) {return (L.compare(R) <= 0); }
+inline bool operator<=(const string& L, char R) {return (L.compare(R) <= 0); }
+
+inline bool operator>=(const string& L, const string& R) {return (L.compare(R) >= 0);}
+inline bool operator>=(const char * L, const string& R) {return (R.compare(L) <= 0); }
+inline bool operator>=(char L, const string& R) {return (R.compare(L) <= 0); }
+inline bool operator>=(const string& L, const char *R) {return (L.compare(R) >= 0); }
+inline bool operator>=(const string& L, char R) {return (L.compare(R) >= 0); }
+
+inline ostream& operator<<(ostream& os, const string& s) {return s.print(os);}
+
+// Added by J. Krom 6/22/02
+inline istream& getline(istream& is, string& s) {return s.getline(is);}
+// inline istream& operator>>(istream& is, string &s) {return s.getline(is);}
+
+
+
+#endif
+
+
+
